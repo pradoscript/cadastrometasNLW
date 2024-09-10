@@ -1,11 +1,14 @@
-function start(){
-    while(true){
-        let count = 0
-        while(count <= 10){
-            console.log(count)
-            count = count + 1
+function start() {
+    while (true) { //CTRL + C PARA STOPAR O LOOP NO CONSOLE
+        let opcao = "sair"
+        switch (opcao) {
+            case "entrar":
+                console.log("voce entrou!")
+                break
+            case "sair":
+                console.log("voce saiu!")
+                break
         }
     }
 }
-
 start()
