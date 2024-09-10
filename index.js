@@ -26,3 +26,14 @@ let metas02 = [
     }
 ]
 console.log(metas02[1].value);
+
+// objetos
+let meta = {
+    value: 'Finalizar o evento da Rocketseat!',
+    address: 2,
+    checked: true,
+    isChecked: () => {
+        console.log(info)
+    }
+}
+console.log(meta.value);
