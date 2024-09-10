@@ -1,14 +1,38 @@
-function start() {
+const {select} = require("@inquirer/prompts")
+
+async function start() {
     while (true) { //CTRL + C PARA STOPAR O LOOP NO CONSOLE
-        let opcao = "sair"
+        
+        const opcao = await select({
+            message: "Menu >",
+            choices: [
+                {
+                    name: "Cadastrar Meta",
+                    value: "cadastrar"
+                },
+                {
+                    name: "Listar metas",
+                    value: "listar"
+                },
+                {
+                    name: "Sair",
+                    value: "sair"
+                }
+            ]
+        })
+
+
         switch (opcao) {
-            case "entrar":
-                console.log("voce entrou!")
+            case "cadastrar":
+                console.log("voce cadastrou!")
+                break
+            case "listar":
+                console.log("listando!")
                 break
             case "sair":
-                console.log("voce saiu!")
-                break
+                console.log("saindo!")
+                return
         }
     }
 }
-start()
+start() 
