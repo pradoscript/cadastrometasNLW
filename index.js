@@ -37,3 +37,10 @@ let meta = {
     }
 }
 console.log(meta.value);
+
+
+// function // arrow function
+const criarMeta = () => {}
+
+// named function
+function criarMetas() {}
