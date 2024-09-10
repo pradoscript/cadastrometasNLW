@@ -2,6 +2,6 @@
 -Listar metas
     -Metas realizadas
     -Metas abertas
--MArcar/Desmarcar metas realizadas
+-Marcar/Desmarcar metas realizadas
 -Remover metas
 -Sistemas de Mensagens
