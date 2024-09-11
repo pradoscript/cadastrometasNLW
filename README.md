@@ -10,16 +10,16 @@
 
 **INTERFACE DA APLICAÇÃO**
 
-```markdown
+```bash
  *Bem-Vindo ao App de Gerenciamento de Metas
 
  MENU:
- >Cadastrar Meta
+ >Cadastrar Metas
  Listar Metas
  Metas Realizadas
  Metas Abertas
  Excluir Metas
  Sair
-```sh
+```
 
 

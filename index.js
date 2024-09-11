@@ -155,23 +155,23 @@ async function start() {
             message: "Menu >",
             choices: [
                 {
-                    name: "Cadastrar Meta",
+                    name: "Cadastrar Meta(s)",
                     value: "cadastrar"
                 },
                 {
-                    name: "Listar metas",
+                    name: "Listar Meta(s)",
                     value: "listar"
                 },
                 {
-                    name: "Metas Realizadas",
+                    name: "Meta(s) Realizada(s)",
                     value: "realizadas"
                 },
                 {
-                    name: "Metas Abertas",
+                    name: "Meta(s) Aberta(s)",
                     value: "abertas"
                 },
                 {
-                    name: "Excluir Metas",
+                    name: "Excluir Meta(s)",
                     value: "excluir"
                 },
                 {
