@@ -27,7 +27,7 @@ async function listarMetas(){
 
      if(respostas.length == 0){
         console.log("Nenhumma meta selecionada!")
-        return listarMetas()
+        return 
      }
 
      metas.forEach(function (todasAsMetas){
@@ -46,6 +46,24 @@ async function listarMetas(){
 
 }
 
+const metasRealizadas = async () => {
+    const realizadas = metas.filter((meta) => {
+        return meta.checked 
+    })
+
+    if(realizadas.length == 0){
+        console.log("Não existe nenhuma meta realizada!")
+        return
+    }
+
+    await select({
+        message: "Metas Realizadas",
+        choices: [...realizadas]
+    })
+
+    console.log(realizadas)
+}
+
 async function start() {
     while (true) { //CTRL + C PARA STOPAR O LOOP NO CONSOLE
         
@@ -59,6 +77,10 @@ async function start() {
                 {
                     name: "Listar metas",
                     value: "listar"
+                },
+                {
+                    name: "Metas Realizadas",
+                    value: "realizadas"
                 },
                 {
                     name: "Sair",
@@ -76,6 +98,9 @@ async function start() {
                 break
             case "listar":
                 await listarMetas()
+                break
+            case "realizadas":
+                await metasRealizadas()
                 break
             case "sair":
                 console.log("saindo!")
