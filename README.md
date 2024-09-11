@@ -10,7 +10,7 @@
 
 **INTERFACE DA APLICAÇÃO**
 
-```bash
+```markdown
  *Bem-Vindo ao App de Gerenciamento de Metas
 
  MENU:
