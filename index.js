@@ -83,17 +83,26 @@ const metasAbertas = async () => {
 }
 
 const excluirMeta = async () => {
-    const metasRemove = await checkbox({
+    const desmarcarTodasMetas = metas.map((meta) => {
+        return {value: meta.value, checked: false}
+    })
+    const itemsADeletar = await checkbox({
         message: "Use as setas para mudar de meta, o espaço para marcar ou desmarcar e o Enter para EXCLUIR essa META",
-        choices: [...metas],
+        choices: [...desmarcarTodasMetas],
         instructions: false
      })
-    const marcadasParaExcluir = metasRemove.filter((meta) => {
-        return meta == metas.value
-    })
 
+     if (itemsADeletar.length == 0){
+        console.log("Nenhuma meta foi selecionada!")
+        return
+     }
 
-    
+     itemsADeletar.forEach((item) => {
+        metas = metas.filter((itemArrayOriginal) => {
+            return itemArrayOriginal.value != item
+        })
+     })
+    console.log("Meta(s) Excluída(s) com Sucesso!")
 }
 
 async function start() {
