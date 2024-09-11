@@ -64,6 +64,38 @@ const metasRealizadas = async () => {
     console.log(realizadas)
 }
 
+const metasAbertas = async () => {
+    const naoRealizadas = metas.filter((meta) => {
+        return meta.checked == false
+    })
+
+    if(naoRealizadas.length == 0){
+        console.log("Todas as metas foram realizadas!")
+        return
+    }
+
+    await select({
+        message: "Metas Realizadas",
+        choices: [...naoRealizadas]
+    })
+
+    console.log(naoRealizadas)
+}
+
+const excluirMeta = async () => {
+    const metasRemove = await checkbox({
+        message: "Use as setas para mudar de meta, o espaço para marcar ou desmarcar e o Enter para EXCLUIR essa META",
+        choices: [...metas],
+        instructions: false
+     })
+    const marcadasParaExcluir = metasRemove.filter((meta) => {
+        return meta == metas.value
+    })
+
+
+    
+}
+
 async function start() {
     while (true) { //CTRL + C PARA STOPAR O LOOP NO CONSOLE
         
@@ -81,6 +113,14 @@ async function start() {
                 {
                     name: "Metas Realizadas",
                     value: "realizadas"
+                },
+                {
+                    name: "Metas Abertas",
+                    value: "abertas"
+                },
+                {
+                    name: "Excluir Metas",
+                    value: "excluir"
                 },
                 {
                     name: "Sair",
@@ -101,6 +141,12 @@ async function start() {
                 break
             case "realizadas":
                 await metasRealizadas()
+                break
+            case "abertas":
+                await metasAbertas()
+                break
+            case "excluir":
+                await excluirMeta()
                 break
             case "sair":
                 console.log("saindo!")
