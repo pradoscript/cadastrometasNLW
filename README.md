@@ -8,4 +8,18 @@
 - ❗ **EXIBIÇÃO DAS METAS QUE NÃO FORAM CONCLUÍDAS**
 - ❌ **EXCLUSÃO DE METAS**
 
-![interface_da_aplicacao](/cadastrometasNLW/interface.png)
+**INTERFACE DA APLICAÇÃO**
+
+```markdown
+ *Bem-Vindo ao App de Gerenciamento de Metas
+
+ MENU:
+ >Cadastrar Meta
+ Listar Metas
+ Metas Realizadas
+ Metas Abertas
+ Excluir Metas
+ Sair
+```sh
+
+
