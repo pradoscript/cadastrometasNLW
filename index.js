@@ -1,8 +1,21 @@
 const {select, input, checkbox } = require("@inquirer/prompts")
-
+const fs = require("fs").promises
 let mensagem = "Bem-Vindo ao App de Gerenciamento de Metas"
+let metas
 
-let metas = []
+const carregarMetas = async () => {
+    try {
+        const dados = await fs.readFile("metas.json", "utf-8")
+        metas = JSON.parse(dados)
+    }
+    catch(erro) {
+        metas = []
+    }
+}
+
+const salvarMetas = async () => {
+    await fs.writeFile("metas.json", JSON.stringify(metas, null, 2))
+}
 
 async function cadastrarMeta(){
 
@@ -23,6 +36,10 @@ async function cadastrarMeta(){
 }
 
 async function listarMetas(){
+    if(metas.length == 0){
+        mensagem = "Não existem metas cadastradas!"
+        return
+    }
      const respostas = await checkbox({
         message: "Use as setas para mudar de meta, o espaço para marcar ou desmarcar e o Enter para finalizar essa etapa",
         choices: [...metas],
@@ -34,7 +51,7 @@ async function listarMetas(){
      })
 
      if(respostas.length == 0){
-        mensagem = "Nenhumma meta selecionada!"
+        mensagem = "Nenhuma meta selecionada!"
         return 
      }
 
@@ -51,6 +68,10 @@ async function listarMetas(){
 }
 
 const metasRealizadas = async () => {
+    if(metas.length == 0){
+        mensagem = "Não existem metas cadastradas!"
+        return
+    }
     const realizadas = metas.filter((meta) => {
         return meta.checked 
     })
@@ -69,6 +90,10 @@ const metasRealizadas = async () => {
 }
 
 const metasAbertas = async () => {
+    if(metas.length == 0){
+        mensagem = "Não existem metas cadastradas!"
+        return
+    }
     const naoRealizadas = metas.filter((meta) => {
         return meta.checked == false
     })
@@ -87,6 +112,10 @@ const metasAbertas = async () => {
 }
 
 const excluirMeta = async () => {
+    if(metas.length == 0){
+        mensagem = "Não existem metas cadastradas!"
+        return
+    }
     const desmarcarTodasMetas = metas.map((meta) => {
         return {value: meta.value, checked: false}
     })
@@ -118,8 +147,10 @@ const mostrarMensagens = () => {
 }
 
 async function start() {
+    await carregarMetas()
     while (true) { //CTRL + C PARA STOPAR O LOOP NO CONSOLE
         mostrarMensagens()
+        salvarMetas()
         const opcao = await select({
             message: "Menu >",
             choices: [
