@@ -25,14 +25,14 @@ async function listarMetas(){
         instructions: false
      })
 
+     metas.forEach(function (todasAsMetas){
+        todasAsMetas.checked = false
+     })
+
      if(respostas.length == 0){
         console.log("Nenhumma meta selecionada!")
         return 
      }
-
-     metas.forEach(function (todasAsMetas){
-        todasAsMetas.checked = false
-     })
 
      respostas.forEach(function (resposta){
         const meta = metas.find(function (metaRequisitada){
