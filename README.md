@@ -1,6 +1,6 @@
 ## NLW POCKET JAVASCRIPT/NODE
 - Projeto baseado no evento NLW POCKET da RocketSeat.
-- Projeto desenvolvido utilizando apenas JavaScript e NodeJS, reforçando toda a base de JavaScript, como Peças de uma Linguagem, Escopo e Variáveis, Tipos de Dados, Operadores, etc
+- Projeto desenvolvido utilizando apenas JavaScript e NodeJS com a finalidade de construir uma aplicação simples voltada para a organicação, sendo possível a manipulação dos dados cadastrados para que estes não sejam perdidos ao finalizar a aplicação.
 - *O PROJETO CONSTA COM AS SEGUINTES FUNCIONALIDADES!*
 - ✅ **CRIAÇÃO DE METAS**
 - 📒 **LISTAMENTO DAS METAS**
